@@ -1,15 +1,15 @@
-class Solution:
-    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
+class Solution(object):
+    def pivotArray(self, nums, pivot):
         left=[]
         right=[]
         p=[]
         for num in nums:
             if num<pivot:
                 left.append(num)
-            elif num>pivot:
-                right.append(num)
-            else:
+            elif num==pivot:
                 p.append(num)
-        return left+p+right 
-    
+            else:
+                right.append(num)
+        return left+p+right
+        
         
