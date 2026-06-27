@@ -1,18 +1,17 @@
-class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        n=[]
-        p=""
-        for chr in s:
-            if chr not in p:
-                p+=chr
-            else:
-                n.append(p)
-                p=p[p.index(chr)+1:] + chr
-        n.append(p)
-        length=[len(w) for w in n]
-        return max(length) if length else 0
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        l=0
+        s1=set()
+        n=len(s)
+        longest=0
+        for r in range(n):
+            while s[r] in s1:
+                s1.remove(s[l])
+                l+=1
+            w=(r-l)+1
+            longest=max(w,longest)
+            s1.add(s[r])
+        return longest
         
-
         
-
         
